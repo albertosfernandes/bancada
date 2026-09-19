@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg: #090b0f;
+  --color-panel: #0f131a;
+  --color-panel-raised: #141922;
+  --color-border: #1f2733;
+  --color-border-soft: #171d27;
+
+  --color-ink: #e7eaee;
+  --color-ink-muted: #8a93a3;
+  --color-ink-faint: #565f6e;
+
+  --color-ember: #ff6a3d;
+  --color-ember-soft: #ff8c5f;
+  --color-ember-dim: #7a3520;
+  --color-cyan: #22d3c5;
+  --color-cyan-dim: #0f4d47;
+  --color-ok: #3ddc84;
+  --color-warn: #f5c451;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Blueprint grid backdrop used behind hero / section headers */
+.bp-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 106, 61, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 106, 61, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bp-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(255, 106, 61, 0.18), transparent 60%);
+}
+
+.text-gradient-ember {
+  background: linear-gradient(90deg, var(--color-ember) 0%, var(--color-ember-soft) 50%, var(--color-cyan) 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #0a0d12;
+}
+
+/* thin scrollbar to match the workbench aesthetic */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-faint);
+}

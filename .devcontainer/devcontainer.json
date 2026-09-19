@@ -1,0 +1,38 @@
+{
+  "name": "bancada-dev",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "remoteUser": "devbox",
+
+  "mounts": [
+    "source=${localEnv:HOME}/.aws,target=/home/devbox/.aws,type=bind,consistency=cached"
+  ],
+
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "SAM Local API",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": "devbox run install-deps",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "amazonwebservices.aws-toolkit-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true
+      }
+    }
+  }
+}

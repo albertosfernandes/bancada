@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": [
+    "nodejs@22",
+    "awscli2",
+    "git",
+    "jq@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo '🚀 Bancada — Ambiente de Desenvolvimento (Devbox)'",
+      "node --version",
+      "npm --version"
+    ],
+    "scripts": {
+        "install-deps": "npm install"
+    }
+  }
+}
